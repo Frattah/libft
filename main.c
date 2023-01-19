@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-int	main()
+int	main(int argc, char **argv)
 {
-	printf("ft_isalpha(a) == %d", ft_isalpha('a'));
+	printf("%d\n", ft_cntword(argv[1], argv[2][0]));
 }
