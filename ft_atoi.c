@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 09:43:19 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/19 09:49:13 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/19 12:36:32 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/19 12:40:09 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_atoi(const char *s)
 {
 	size_t	i;
+	int		nb;
+	int		meno;
 
+	meno = 1;
+	nb = 0;
 	i = 0;
-	if (size > 0)
-	{
-		while (src[i] && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
-	}
-	while (src[i])
+	while (s[i] && ((s[i] >= 9 && s[i] <= 13) || s[i] == 32))
 		i++;
-	return (i);
+	if (s[i] == '-' || s[i] == '+')
+	{
+		meno *= -1;
+		i++;
+	}
+	while (ft_isdigit(s[i]))
+		nb = (nb * 10) + s[i++] - '0';
+	return (meno * nb);
 }

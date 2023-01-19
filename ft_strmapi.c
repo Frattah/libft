@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 09:43:19 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/19 09:49:13 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/19 11:58:22 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/19 12:04:57 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
 
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char			*s_cpy;
+
+	s_cpy = ft_strdup(s);
+	if (s_cpy == NULL)
+		return (NULL);
 	i = 0;
-	if (size > 0)
+	while  (s_cpy[i])
 	{
-		while (src[i] && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
-	}
-	while (src[i])
+		s_cpy[i] = (*f)(i, s_cpy[i]);
 		i++;
-	return (i);
+	}
+	return (s_cpy);
 }

@@ -1,20 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_cntword.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/19 08:51:06 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/19 10:14:06 by frmonfre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_cntword(char const *s, char c)
+size_t	ft_cntword(char const *s, char c)
 {
 	size_t	i;
 	size_t	w;
-	size_t	ln;
 
 	i = 0;
 	w = 0;
-	ln = ft_strlen(s);
 	while (s[i])
 	{
-		printf("(%ld != 0 && %ld != %ld - 1 && %c != %c && %c == %c && %c != %c)\n", i,i,ln,s[i -1],c,s[i],c,s[i+1],c);
-		if (i != 0 && i != ln - 1 && s[i - 1] != c && s[i] == c && s[i + 1] != c)
-			w += (!w) ? 2 : 1;
-		i++;
+		while (s[i] && s[i] != c)
+			i++;
+		while (s[i] && s[i] == c)
+		{
+			if (i != 0 && s[i - 1] != c)
+				w++;
+			i++;
+		}
 	}
+	if (s[i - 1] != '\0' && s[i - 1] != c)
+		w++;
 	return (w);
 }

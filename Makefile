@@ -6,11 +6,11 @@ NAME	=	libft.a
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 compile:
-	cc main.c -L. -lft $(NAME)
+	cc main.c -L. -lft $(NAME) -g
 
 clear:
 	rm -rf $(OBJS)
