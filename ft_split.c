@@ -27,16 +27,15 @@ char	**ft_split(char const *s, char c)
 	if (split == NULL)
 		return (NULL);
 	split[words] = NULL;
-	while (split[0])
+	while (words--)
 	{
 		s_cpy = ft_skpstr(s_cpy, c);
 		len = ft_strlen_chr(s_cpy, c);
-		split[0] = (char *) malloc(sizeof(char) * (len + 1));
-		if (split[0] == NULL)
+		*split = (char *) malloc(sizeof(char) * (len + 1));
+		if (*split == NULL)
 			return (NULL);
-		ft_strlcpy(split[0], s_cpy, len + 1);
-		split++;
+		ft_strlcpy(*split++, s_cpy, len + 1);
 		s_cpy += len;
 	}
-	return (split - words);
+	return (split - ft_cntword(s, c));
 }
