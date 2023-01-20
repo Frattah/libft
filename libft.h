@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:47:21 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/19 12:48:01 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:32:26 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define LIFT_H
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct	s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
-}			t_list;
+}					t_list;
 
 int		ft_isalpha(int c);
 
@@ -85,6 +86,23 @@ size_t	ft_strlen_chr(const char *s, char c);
 
 char	*ft_skpstr(char *s, char c);
 
+char	*ft_strjoin(char const *s1, char const *s2);
+
+char	*ft_strtrim(char const *s1, char const *set);
+
+int		ft_isin(char c, char const *set);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 char	**ft_split(const char  *s, char c);
 
+void	ft_putchar_fd(char c, int fd);
+
+void	ft_putstr_fd(char *s, int fd);
+
+void	ft_putendl_fd(char *s, int fd);
+
+void	ft_putnbr_fd(int n, int fd);
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 15:29:20 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 15:29:21 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/20 14:08:40 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/20 14:17:23 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	ln;
-	size_t	i;
+	unsigned int	i;
+	char			*out;
 
-	if (s2 == NULL)
-		return ((char *) s1);
-	ln = ft_strlen(s2);
-	i = 0;
-	while (s1[i] && i < n)
-	{
-		printf("confronto %s && %s\n", s1 + i, s2);
-		if (!ft_strncmp(s1 + i, s2, ln))
-			return ((char *) s1 + i);
-		i++;
-	}
-	return (NULL);
+	if (len <= 0)
+		return (NULL);
+	out = (char *) malloc(sizeof(char) * (len + 1));
+	if (out == NULL)
+		return (NULL);
+	i = start - 1;
+	while (s[++i] && i < len + start)
+		out[i - start] = s[i];
+	out[i - start] = '\0';
+	return (out);
 }

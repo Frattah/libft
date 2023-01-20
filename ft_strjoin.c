@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 15:29:20 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 15:29:21 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/20 13:59:13 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/20 14:09:44 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	ln;
+	char	*s12;
 	size_t	i;
+	size_t	len1;
+	size_t	len2;
 
-	if (s2 == NULL)
-		return ((char *) s1);
-	ln = ft_strlen(s2);
-	i = 0;
-	while (s1[i] && i < n)
-	{
-		printf("confronto %s && %s\n", s1 + i, s2);
-		if (!ft_strncmp(s1 + i, s2, ln))
-			return ((char *) s1 + i);
-		i++;
-	}
-	return (NULL);
+	i = -1;
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	s12 = (char *) malloc(sizeof(char) * (len1 + len2 + 1));
+	if (s12 == NULL)
+		return (NULL);
+	while (++i < len1)
+		s12[i] = s1[i];
+	i = -1;
+	while (++i < len2)
+		s12[len1 + i] = s2[i];
+	s12[len1 + i] = '\0';
+	return (s12);
 }
