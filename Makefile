@@ -6,6 +6,8 @@ NAME	=	libft.a
 
 all:	$(NAME)
 
+bonus: all
+
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 

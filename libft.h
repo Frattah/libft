@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:47:21 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 15:32:26 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:13:20 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ size_t	ft_cntdgt(int n);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t size);
 
-char	*ft_strchr(char *s, int c);
+char	*ft_strchr(const char *s, int c);
 
-char	*ft_strrchr(char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
@@ -105,4 +105,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+void	ft_memmove(void *dst, const void *src, size_t size);
 #endif

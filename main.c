@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:30:18 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 15:37:57 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:44:08 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@
 
 int	main(int argc, char **argv)
 {
+	printf("%s\n", ft_strrchr("tripouille", 't'));
 }
