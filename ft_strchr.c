@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:42:59 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 17:09:37 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:02:38 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*ft_strchr(const char *s, int c)
 		if (s[i] == c)
 			return ((char *) &s[i]);
 	if (c == '\0')
-		return ((char *) (s + i));
+		return ((char *)(s + i));
 	return (NULL);
 }

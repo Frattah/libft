@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cntword.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 08:51:06 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/24 17:07:03 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/24 12:53:05 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/24 16:02:06 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_cntword(char const *s, char c)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
+	size_t	ln;
 	size_t	i;
-	size_t	w;
 
-	i = 0;
-	w = 0;
-	if (s == NULL)
-		return (0);
-	while (s[i])
+	ln = ft_strlen(dst);
+	i = -1;
+	if (ln < n - 1 && n > 0)
 	{
-		while (s[i] && s[i] != c)
-			i++;
-		while (s[i] && s[i] == c)
-		{
-			if (i != 0 && s[i - 1] != c)
-				w++;
-			i++;
-		}
+		while (src[++i] && ln + i < n - 1)
+			dst[ln + i] = src[i];
+		dst[ln + i] = '\0';
 	}
-	if (s[i - 1] != '\0' && s[i - 1] != c)
-		w++;
-	return (w);
+	if (ln >= n)
+		ln = n;
+	return (ln + ft_strlen(src));
 }

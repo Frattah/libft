@@ -6,13 +6,11 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:58:22 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 15:18:44 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:09:10 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -23,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s_cpy == NULL)
 		return (NULL);
 	i = 0;
-	while  (s_cpy[i])
+	while (s_cpy[i])
 	{
 		s_cpy[i] = (*f)(i, s_cpy[i]);
 		i++;

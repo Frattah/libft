@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cntword.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 08:51:06 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/24 17:07:03 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/24 13:52:42 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/24 16:00:31 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_cntword(char const *s, char c)
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
-	size_t	i;
-	size_t	w;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	i = 0;
-	w = 0;
-	if (s == NULL)
-		return (0);
-	while (s[i])
-	{
-		while (s[i] && s[i] != c)
-			i++;
-		while (s[i] && s[i] == c)
-		{
-			if (i != 0 && s[i - 1] != c)
-				w++;
-			i++;
-		}
-	}
-	if (s[i - 1] != '\0' && s[i - 1] != c)
-		w++;
-	return (w);
+	p1 = (unsigned char *) ptr1;
+	p2 = (unsigned char *) ptr2;
+	while (n--)
+		if (*p1++ != *p2++)
+			return (*(p1 - 1) - *(p2 - 1));
+	return (0);
 }

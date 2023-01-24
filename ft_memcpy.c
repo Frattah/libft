@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cntword.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 08:51:06 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/24 17:07:03 by frmonfre         ###   ########.fr       */
+/*   Created: 2023/01/24 12:30:02 by frmonfre          #+#    #+#             */
+/*   Updated: 2023/01/24 15:57:36 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_cntword(char const *s, char c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	size_t	w;
+	int				i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	i = 0;
-	w = 0;
-	if (s == NULL)
-		return (0);
-	while (s[i])
-	{
-		while (s[i] && s[i] != c)
-			i++;
-		while (s[i] && s[i] == c)
-		{
-			if (i != 0 && s[i - 1] != c)
-				w++;
-			i++;
-		}
-	}
-	if (s[i - 1] != '\0' && s[i - 1] != c)
-		w++;
-	return (w);
+	i = -1;
+	if (src == NULL || n == 0)
+		return (dst);
+	if (dst == NULL)
+		return (NULL);
+	d = (unsigned char *) dst;
+	s = (unsigned char *) src;
+	while (++i < n)
+		d[i] = s[i];
+	return (dst);
 }

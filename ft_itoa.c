@@ -6,19 +6,19 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:10:08 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 17:34:25 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:11:04 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*control(int n)
+static char	*limit(int n)
 {
-	if (n == -2147483648)
-		return ("-2147483648");
-	else
-		return (NULL);
-	return (NULL);
+	char	*nb;
+
+	nb = (char *) malloc(sizeof(char) * (12));
+	ft_strlcpy(nb, "-2147483648", 12);
+	return (nb);
 }
 
 char	*ft_itoa(int n)
@@ -28,6 +28,8 @@ char	*ft_itoa(int n)
 	int		meno;
 
 	meno = 0;
+	if (n == -2147483648)
+		return (limit(n));
 	if (n < 0)
 	{
 		meno++;
@@ -35,8 +37,6 @@ char	*ft_itoa(int n)
 	}
 	dgt = ft_cntdgt(n);
 	nb = (char *) malloc(sizeof(char) * (dgt + 1 + meno));
-	if (control(n) != NULL)
-		return (control(n));
 	if (nb == NULL)
 		return (NULL);
 	nb[dgt + meno] = '\0';

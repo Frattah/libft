@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:47:21 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 17:13:20 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:41:02 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,19 @@ void	*ft_memset(void *p, int val, size_t size);
 
 void	*ft_bzero(void *p, size_t size);
 
-void	*ft_memcpy(void *dst, const void *src, size_t size);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+
+void	*ft_memmove(void *dst, const void *src, size_t n);
+
+size_t	ft_strlcat(char *dst, const char *src, size_t n);
 
 int		ft_tolower(char	c);
 
 int		ft_toupper(char c);
+
+void	*ft_memchr(const void *ptr, int val, size_t n);
+
+int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
 
 int		ft_atoi(const char *s);
 
@@ -68,7 +76,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 char	*ft_strdup(const char *s);
 
-void	*ft_calloc(size_t nb, size_t by);
+void	*ft_calloc(size_t nitems, size_t siz);
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 
@@ -106,5 +114,4 @@ void	ft_putnbr_fd(int n, int fd);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-void	ft_memmove(void *dst, const void *src, size_t size);
 #endif

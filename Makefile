@@ -14,10 +14,10 @@ $(NAME): $(OBJS)
 compile:
 	cc main.c -L. -lft $(NAME) -g
 
-clear:
+clean:
 	rm -rf $(OBJS)
 
-fclear:
+fclean:
 	rm -rf $(NAME)
 
-re: clear fclear all compile
+re: clean fclean all compile

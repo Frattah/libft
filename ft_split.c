@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:10:59 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/19 10:46:16 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:32:48 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ char	**ft_split(char const *s, char c)
 	char	*s_cpy;
 	size_t	len;
 
-	if (s == NULL)
-		return (NULL);
 	s_cpy = (char *) s;
 	words = ft_cntword(s, c);
 	split = (char **) malloc(sizeof(char *) * (words + 1));
 	if (split == NULL)
 		return (NULL);
 	split[words] = NULL;
-	while (words--)
+	while (s != NULL && *s != 0 && words--)
 	{
 		s_cpy = ft_skpstr(s_cpy, c);
 		len = ft_strlen_chr(s_cpy, c);
