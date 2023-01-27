@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:42:59 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/24 16:02:38 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:09:43 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
-	if (s == NULL)
-		return (NULL);
 	if (!ft_isascii(c))
 		return ((char *) s);
 	i = -1;

@@ -6,13 +6,13 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:10:08 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/24 16:11:04 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:18:40 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*limit(int n)
+static char	*limit(void)
 {
 	char	*nb;
 
@@ -29,7 +29,7 @@ char	*ft_itoa(int n)
 
 	meno = 0;
 	if (n == -2147483648)
-		return (limit(n));
+		return (limit());
 	if (n < 0)
 	{
 		meno++;

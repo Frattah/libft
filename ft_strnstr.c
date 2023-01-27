@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:29:20 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 15:29:21 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:10:24 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	size_t	ln;
 	size_t	i;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
 	ln = ft_strlen(s2);
 	if (ln == 0)
 		return ((char *) s1);

@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:36:22 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 16:02:22 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:59:05 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_lstsize(t_list *lst)
 {
 	int	len;
 
-	len = 0;	
+	len = 0;
 	while (lst != NULL)
 	{
 		len++;
