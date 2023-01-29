@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:10:08 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/27 16:18:40 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:15:50 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ static char	*limit(void)
 	nb = (char *) malloc(sizeof(char) * (12));
 	ft_strlcpy(nb, "-2147483648", 12);
 	return (nb);
+}
+
+static size_t	cntdgt(int n)
+{
+	size_t	dgt;
+
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	dgt = 0;
+	while (n > 0)
+	{
+		dgt++;
+		n /= 10;
+	}
+	return (dgt);
 }
 
 char	*ft_itoa(int n)
@@ -35,7 +52,7 @@ char	*ft_itoa(int n)
 		meno++;
 		n = -n;
 	}
-	dgt = ft_cntdgt(n);
+	dgt = cntdgt(n);
 	nb = (char *) malloc(sizeof(char) * (dgt + 1 + meno));
 	if (nb == NULL)
 		return (NULL);

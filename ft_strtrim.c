@@ -6,32 +6,37 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:21:46 by frmonfre          #+#    #+#             */
-/*   Updated: 2023/01/20 14:48:40 by frmonfre         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:15:01 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	isin(char c, char const *set)
 {
-	size_t	j;
-	size_t	i;
-	size_t	len;
-	char	*trim;
+	int	fnd;
 
-	j = 0;
-	len = 0;
-	i = -1;
-	while (s1[++i])
-		if (!ft_isin(s1[i], set))
-			len++;
-	trim = (char *) malloc(sizeof(char) * (len + 1));
-	if (trim == NULL)
+	fnd = 0;
+	while (*set && !fnd)
+		if (*set++ == c)
+			fnd = 1;
+	return (fnd);
+}
+
+char	*ft_strtrim(char const *s, char const *set)
+{
+	size_t	i;
+	size_t	j;
+	char	*nw;
+
+	i = 0;
+	j = ft_strlen(s) - 1;
+	if (s == NULL || set == NULL)
 		return (NULL);
-	i = -1;
-	while (s1[++i])
-		if (!ft_isin(s1[i], set))
-			trim[j++] = s1[i];
-	trim[j] = '\0';
-	return (trim);
+	while (s[i] && isin(s[i], set))
+		i++;
+	while (i < j && isin(s[j], set))
+		j--;
+	nw = ft_substr(s, i, j - i + 1);
+	return (nw);
 }
